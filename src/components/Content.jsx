@@ -7,7 +7,7 @@ import Result from "./Result";
 import { MainContext, useContext } from "../context";
 
 function Content() {
-  const { inputRef, setDisabledInput, setChar, setCharIndex } = useContext(MainContext);
+  const { inputRef, setDisabledInput, setChar, setCharIndex, wordsInputVisibility, setWordsInputVisibility } = useContext(MainContext);
   const number_words = 11;
   const [input, setInput] = useState('');
   const [words, setWords] = useState([]);
@@ -15,9 +15,6 @@ function Content() {
   const [incorrect, setIncorrect] = useState(0);
   const [inputIndex, setInputIndex] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  useEffect(() => {
-    setWords(generateRandomWords());
-  }, []);
   const generateRandomWords = () => {
     return new Array(number_words).fill(null).map(() => randomWords());
   }
@@ -33,6 +30,7 @@ function Content() {
     setCorrect(0);
     setIncorrect(0);
     setWords(generateRandomWords);
+    setWordsInputVisibility(true);
     var interval = setInterval(() => {
       setCountDown(prevCountDown => {
         if (prevCountDown === 0) {
@@ -45,6 +43,7 @@ function Content() {
           setCharIndex(-1);
           setChar("");
           setInputIndex(0);
+          setWordsInputVisibility(false);
         } else {
           return prevCountDown - 1;
         }
@@ -54,7 +53,7 @@ function Content() {
 
   return (
     <StyledContent>
-      <Description>How many words do you write in one minute</Description>
+      <Description>How many words can you write in one minute</Description>
       <TypingTestWords
         inputIndex={inputIndex}
         setInputIndex={setInputIndex}

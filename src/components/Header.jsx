@@ -4,7 +4,7 @@ function Header() {
     return (
         <StyledHeader>
             <HeaderTitle>
-                typingtest.com
+                typingtest
             </HeaderTitle>
             <LinksContainer>
                 <Link target="_blank" href="https://github.com/mustafamertgoksu">GitHub</Link>

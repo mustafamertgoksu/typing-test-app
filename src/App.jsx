@@ -9,6 +9,7 @@ function App() {
   const [disabledInput, setDisabledInput] = useState(true);
   const [char, setChar] = useState("");
   const [charIndex, setCharIndex] = useState(-1);
+  const [wordsInputVisibility, setWordsInputVisibility] = useState(false)
   const data = {
     inputRef,
     disabledInput,
@@ -17,6 +18,8 @@ function App() {
     setChar,
     charIndex,
     setCharIndex,
+    wordsInputVisibility,
+    setWordsInputVisibility
   }
   return (
     <MainContext.Provider value={data}>

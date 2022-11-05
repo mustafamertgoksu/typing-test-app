@@ -2,7 +2,7 @@ import { StyledTypingTestWords, Span } from './styles/TypingTestWords.styled';
 import { MainContext, useContext } from '../context';
 
 function TypingTestWords({ words, inputIndex, countDownTimer }) {
-  const {char, charIndex } = useContext(MainContext);
+  const {char, charIndex, wordsInputVisibility, setWordsInputVisibility } = useContext(MainContext);
   const getCharClass = (wordIdx,charIdx, letter) => {
       if(wordIdx === inputIndex && charIdx === charIndex && char && countDownTimer ) {
         if (letter === char) {
@@ -17,7 +17,8 @@ function TypingTestWords({ words, inputIndex, countDownTimer }) {
       }
   }
   return (
-    <StyledTypingTestWords>
+    <>
+      {wordsInputVisibility ? <StyledTypingTestWords>
       {words.map((word, index) => (
         <span key={index}>
           <Span>
@@ -29,7 +30,10 @@ function TypingTestWords({ words, inputIndex, countDownTimer }) {
           <div style={{ display: 'inline' }}> </div>
         </span>
       ))}
-    </StyledTypingTestWords>
+    </StyledTypingTestWords> 
+    : 
+    ''}
+    </>
   )
 }
 
