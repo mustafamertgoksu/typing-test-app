@@ -8,7 +8,7 @@ function Header() {
             </HeaderTitle>
             <LinksContainer>
                 <Link target="_blank" href="https://github.com/mustafamertgoksu">GitHub</Link>
-                <Link target="_blank" href="https://mustafamertgoksu.ml">My Blog</Link>
+                <Link target="_blank" href="https://mustafamertgoksu.me">My Blog</Link>
             </LinksContainer>
         </StyledHeader>
     )
